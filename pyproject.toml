@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "omocaptcha-py"
+version = "0.1.0"
+description = ""
+authors = ["MehdiRtal <mehdirtal7@pm.me>"]
+packages = [{include = "omocaptcha_py"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+httpx = "^0.25.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
