@@ -5,7 +5,7 @@ import base64
 
 class OMOCaptcha:
     def __init__(self, api_key: str):
-        self._client = httpx.Client(timeout=httpx.Timeout(5, connect=30))
+        self._client = httpx.Client(timeout=httpx.Timeout(10, connect=30))
         self._api_key = api_key
 
     def create_job(self, service_id: int, **data):
@@ -16,7 +16,7 @@ class OMOCaptcha:
                 **data
             }
         })
-        if r.json()["error"]:
+        if not r.json()["success"]:
             raise Exception(r.json()["message"])
         return r.json()["job_id"]
 
